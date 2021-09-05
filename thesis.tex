@@ -1,0 +1,169 @@
+\documentclass[11pt,twoside,openright]{report}
+
+\usepackage[a4paper,width=140mm,top=25mm,bottom=25mm]{geometry}
+\usepackage[czech,english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{lmodern}
+\usepackage{kpfonts}
+\usepackage{csquotes}
+\usepackage{emptypage}
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{\leftmark}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+\usepackage{footmisc}
+
+
+\usepackage{epstopdf}
+
+\usepackage[nottoc]{tocbibind}
+%\usepackage[numbers]{natbib}
+
+\usepackage[style=numeric,backref=true]{biblatex}
+\addbibresource{references.bib}
+
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+\usepackage{float}
+
+\usepackage{datetime}
+\usepackage[pdftex,final]{hyperref}
+\def\UrlBreaks{\do\/\do-}
+
+\DefineBibliographyStrings{english}{
+  backrefpage = {page},
+  backrefpages = {pages},
+}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{interval}
+\usepackage{enumitem}
+%\usepackage{url}
+
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{color}
+%\usepackage{subcaption}
+\usepackage{subfig}
+
+\usepackage{multirow}
+\usepackage{pdfpages}
+
+\usepackage{tikz}
+\usepackage{bm}
+
+\addto\extrasenglish{%
+  \renewcommand{\chapterautorefname}{Chapter}%
+  \renewcommand{\sectionautorefname}{Section}%
+  \renewcommand{\subsectionautorefname}{Subsection}%
+}
+
+% Make autoref work for the algorithm environment.
+\newcommand{\algorithmautorefname}{Algorithm}
+
+%% Definitions %%
+
+% ForEach loop
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
+
+% Break
+\newcommand{\Break}{\State \textbf{break} }
+
+% Input
+\algnewcommand\algorithmicinput{\textbf{Input:}}
+\algnewcommand\Input{\item[\algorithmicinput]}
+
+% Output
+\algnewcommand\algorithmicoutput{\textbf{Output:}}
+\algnewcommand\Output{\item[\algorithmicoutput]}
+
+\newcommand{\R}{\mathbb{R}}  % Pretty set of real numbers.
+\newcommand{\N}{\mathbb{N}}  % Pretty set of natural numbers.
+\newcommand{\Z}{\mathbb{Z^*}}  % Pretty set of integer non-negative umbers.
+\newcommand{\E}{\mathbb{E}}  % Pretty expectation.
+\newcommand{\I}{\mathbb{I}}  % Pretty indicator function.
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}  % The ceiling function.
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}  % The floor function.
+
+\newcommand{\vect}[1]{\bm{\MakeLowercase{#1}}}  % Pretty vectors.
+\newcommand{\mat}[1]{\mathbf{#1}}  % Pretty matrices.
+
+\DeclareMathOperator*{\argmin}{argmin}  % Argmin
+\DeclareMathOperator*{\argmax}{argmax}  % Argmax
+
+\DeclareMathOperator{\atantwo}{atan2}
+\DeclareMathOperator{\arctantwo}{arctan2}
+
+\DeclareMathOperator{\sign}{sign}
+
+\newcommand{\vars}{\texttt}
+\newcommand{\func}{\textrm}
+
+\newcommand{\btheta}{\bm{\theta}}
+\newcommand{\bx}{\bm{x}}
+\newcommand{\by}{\bm{y}}
+\newcommand{\bu}{\bm{u}}
+\newcommand{\aux}{z}
+\newcommand{\auxjoint}{\pi}
+\newcommand{\A}{\mathcal{A}}
+
+\newcommand{\trans}{f}
+\newcommand{\obs}{g}
+\newcommand{\sprior}{p}
+\newcommand{\pprior}{\pi}
+\newcommand{\prop}{q}
+\newcommand{\dx}[1]{\mathrm{d}{#1}}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+
+%% Document %%
+\begin{document}
+\selectlanguage{english}
+
+% Preliminary pages
+\input{preliminary/titlepage}
+\cleardoublepage
+\pagenumbering{roman}
+
+% Insert thesis assignment
+
+\input{preliminary/abstract}
+\input{preliminary/declaration}
+\input{preliminary/acknowledgements}
+
+\tableofcontents
+
+% Chapters
+\cleardoublepage
+\pagenumbering{arabic}
+
+\input{chapters/background}
+
+% Bibliography
+%\bibliographystyle{abbrvnat}
+%\bibliographystyle{unsrt}
+%\bibliography{references}
+\printbibliography
+
+% Appendices
+\appendix
+
+
+\end{document}
